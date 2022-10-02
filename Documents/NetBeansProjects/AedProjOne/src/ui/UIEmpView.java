@@ -11,7 +11,7 @@ import model.EmpView;
 
 /**
  *
- * @author arpit
+ * @author arpitabhagat
  */
 public class UIEmpView extends javax.swing.JPanel {
 

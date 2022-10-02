@@ -69,7 +69,7 @@ public class Crud extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("DELETE");
+        jButton3.setText("SEARCH");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
