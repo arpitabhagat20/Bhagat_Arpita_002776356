@@ -46,7 +46,6 @@ EmpView register;
         jLabel10 = new javax.swing.JLabel();
         txtEmailAddress = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -60,8 +59,7 @@ EmpView register;
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         jLabel7.setText("Enter Employee Start Date:");
 
@@ -84,13 +82,6 @@ EmpView register;
         jLabel10.setText("Enter Employee Possition Title:");
 
         jLabel11.setText("Enter Employee Email Address:");
-
-        jButton1.setText("SUBMIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Update Employee ID");
@@ -129,17 +120,10 @@ EmpView register;
         });
         jScrollPane1.setViewportView(tblEmployee);
 
-        jButton2.setText("UPDATE");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("VIEW");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -200,13 +184,8 @@ EmpView register;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jButton1)
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(jButton2)))
+                        .addGap(372, 372, 372)
+                        .addComponent(btnUpdate)))
                 .addContainerGap(259, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -256,15 +235,11 @@ EmpView register;
                                 .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel11)
-                                .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3)))
+                                .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(39, 39, 39))
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addContainerGap(223, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(369, 369, 369)
@@ -281,43 +256,46 @@ EmpView register;
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPositionTitleActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+            DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+            if(tblEmployee.getSelectedRowCount()==1){
+                if(txtName.getText().isBlank() || txtID.getText().isBlank() || txtAge.getText().isBlank() || txtGender.getText().isBlank() || txtStartDate.getText().isBlank() || txtEmployeeLevel.getText().isBlank() || txtTeamInformation.getText().isBlank() || txtPositionTitle.getText().isBlank() || txtPhoneNumber.getText().isBlank() || txtEmailAddress.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Please fill out the whole form");
+        }
+        else{
+            String employeeName= (txtName.getText());
+            int Id= Integer.parseInt(txtID.getText());
+            int employeeAge= Integer.parseInt(txtAge.getText());
+            String employeeStartDate=(txtStartDate.getText());
+            String employeeGender=(txtGender.getText());
+            String employeeLevel=(txtEmployeeLevel.getText());
+            String employeeTeamInformation=(txtTeamInformation.getText());
+            String employeePositionTitle= (txtPositionTitle.getText());
+            String employeePhoneNumber= (txtPhoneNumber.getText());
+            String employeeemailAddress= (txtEmailAddress.getText());
+                
+            
+            model.setValueAt(employeeName, tblEmployee.getSelectedRow(), 0);
+            model.setValueAt(Id, tblEmployee.getSelectedRow(), 1);
+            model.setValueAt(employeeAge, tblEmployee.getSelectedRow(), 2);
+            model.setValueAt(employeeGender, tblEmployee.getSelectedRow(), 3);
+            model.setValueAt(employeeLevel, tblEmployee.getSelectedRow(), 4);
+            model.setValueAt(employeeTeamInformation, tblEmployee.getSelectedRow(), 5);
+            model.setValueAt(employeePositionTitle, tblEmployee.getSelectedRow(), 6);
+            model.setValueAt(employeePhoneNumber, tblEmployee.getSelectedRow(), 7);
+            model.setValueAt(employeeemailAddress, tblEmployee.getSelectedRow(), 8);
+
+
+                
+                }
+                
+               
+            }
 
       
         
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        
-        int selectedRowIndex = tblEmployee.getSelectedRow();
-
-        if (selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-        EmpCreate selectedEmployee = (EmpCreate)model.getValueAt(selectedRowIndex , 0);
-        
-        txtName.setText(String.valueOf(selectedEmployee.getEmployeeId()));
-        txtAge.setText(String.valueOf(selectedEmployee.getAge()));
-        txtGender.setText(selectedEmployee.getGender());
-        txtID.setText(selectedEmployee.getEmployeeName());
-        
-
-        
-
-        
-
-
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
@@ -356,9 +334,7 @@ EmpView register;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
