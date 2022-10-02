@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static jdk.jfr.FlightRecorder.register;
 import model.EmpCreate;
+import model.EmpView;
 
 /**
  *
@@ -18,8 +19,12 @@ public class UIEmpUpdate extends javax.swing.JPanel {
     /**
      * Creates new form UIEmpUpdateNew
      */
-    public UIEmpUpdate() {
+EmpView register;
+    public UIEmpUpdate(EmpView register) {
         initComponents();
+        this.register= register;
+        populateTable();
+        
     }
 
     /**
@@ -33,9 +38,9 @@ public class UIEmpUpdate extends javax.swing.JPanel {
 
         txtStartDate = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtTeamInfo = new javax.swing.JTextField();
+        txtTeamInformation = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtPositionLevel = new javax.swing.JTextField();
+        txtPositionTitle = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -43,9 +48,9 @@ public class UIEmpUpdate extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -60,17 +65,17 @@ public class UIEmpUpdate extends javax.swing.JPanel {
 
         jLabel7.setText("Enter Employee Start Date:");
 
-        txtTeamInfo.addActionListener(new java.awt.event.ActionListener() {
+        txtTeamInformation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeamInfoActionPerformed(evt);
+                txtTeamInformationActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Enter Employee Team Info:");
 
-        txtPositionLevel.addActionListener(new java.awt.event.ActionListener() {
+        txtPositionTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPositionLevelActionPerformed(evt);
+                txtPositionTitleActionPerformed(evt);
             }
         });
 
@@ -117,9 +122,14 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                 "NAME", "EMPLOYEE ID", "AGE", "GENDER", "START DATE", "LEVEL", "TEAM INFORMATION", "POSITION TITLE", "PHONE NUM", "EMAIL"
             }
         ));
+        tblEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmployeeMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmployee);
 
-        jButton2.setText("DELETE");
+        jButton2.setText("UPDATE");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -153,8 +163,8 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                                             .addComponent(jLabel3))
                                         .addGap(61, 61, 61)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(39, 39, 39)
@@ -176,14 +186,14 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPositionLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txtPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTeamInformation, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(38, 38, 38)
                                 .addComponent(jLabel11)
@@ -195,7 +205,7 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                         .addGap(54, 54, 54)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(389, 389, 389)
+                        .addGap(397, 397, 397)
                         .addComponent(jButton2)))
                 .addContainerGap(259, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,27 +219,22 @@ public class UIEmpUpdate extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addComponent(jLabel2))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -241,9 +246,9 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTeamInformation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel10)
-                                .addComponent(txtPositionLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,9 +262,9 @@ public class UIEmpUpdate extends javax.swing.JPanel {
                             .addComponent(jButton1)
                             .addComponent(jButton3)))
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(38, 38, 38))
+                .addGap(39, 39, 39))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(369, 369, 369)
@@ -268,32 +273,19 @@ public class UIEmpUpdate extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTeamInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeamInfoActionPerformed
+    private void txtTeamInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeamInformationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeamInfoActionPerformed
+    }//GEN-LAST:event_txtTeamInformationActionPerformed
 
-    private void txtPositionLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPositionLevelActionPerformed
+    private void txtPositionTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPositionTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPositionLevelActionPerformed
+    }//GEN-LAST:event_txtPositionTitleActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        int selectedRowIndex = tblEmployee.getSelectedRow();
-
-        if (selectedRowIndex<0){
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-        EmpCreate selectedEmployee = (EmpCreate)model.getValueAt(selectedRowIndex , 0);
-
-        register.deleteRegister(selectedEmployee);
-
-        JOptionPane.showMessageDialog(this, "Employee deleted.");
-
-        populateTable();
+      
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -309,7 +301,17 @@ public class UIEmpUpdate extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
         EmpCreate selectedEmployee = (EmpCreate)model.getValueAt(selectedRowIndex , 0);
         
-        txtID.setText(String.valueOf(selectedEmployee.getEmployeeId()));
+        txtName.setText(String.valueOf(selectedEmployee.getEmployeeId()));
+        txtAge.setText(String.valueOf(selectedEmployee.getAge()));
+        txtGender.setText(selectedEmployee.getGender());
+        txtID.setText(selectedEmployee.getEmployeeName());
+        
+
+        
+
+        
+
+
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -320,6 +322,37 @@ public class UIEmpUpdate extends javax.swing.JPanel {
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
+
+    private void tblEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeeMouseClicked
+        // TODO add your handling code here:
+        
+    DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+    
+    String tblName=model.getValueAt(tblEmployee.getSelectedRow(), 0).toString();
+    String tblID=model.getValueAt(tblEmployee.getSelectedRow(), 1).toString();
+    String tblAge=model.getValueAt(tblEmployee.getSelectedRow(), 2).toString();
+    String tblGender=model.getValueAt(tblEmployee.getSelectedRow(), 3).toString();
+    String tblStartDate=model.getValueAt(tblEmployee.getSelectedRow(), 4).toString();
+    String tblEmployeeLevel=model.getValueAt(tblEmployee.getSelectedRow(), 5).toString();
+    String tblTeamInformation=model.getValueAt(tblEmployee.getSelectedRow(), 6).toString();
+    String tblPositionTitle=model.getValueAt(tblEmployee.getSelectedRow(), 7).toString();
+    String tblPhoneNumber=model.getValueAt(tblEmployee.getSelectedRow(), 8).toString();
+    String tblEmailAddress=model.getValueAt(tblEmployee.getSelectedRow(), 9).toString();
+    
+    txtName.setText(tblName);
+    txtID.setText(tblID);
+    txtAge.setText(tblAge);
+    txtGender.setText(tblGender);
+    txtStartDate.setText(tblStartDate);
+    txtEmployeeLevel.setText(tblEmployeeLevel);
+    txtPositionTitle.setText(tblPositionTitle);
+    txtPhoneNumber.setText(tblPhoneNumber);
+    txtEmailAddress.setText(tblEmailAddress);
+    txtTeamInformation.setText(tblTeamInformation);
+
+
+        
+    }//GEN-LAST:event_tblEmployeeMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -346,12 +379,30 @@ public class UIEmpUpdate extends javax.swing.JPanel {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtPositionLevel;
+    private javax.swing.JTextField txtPositionTitle;
     private javax.swing.JTextField txtStartDate;
-    private javax.swing.JTextField txtTeamInfo;
+    private javax.swing.JTextField txtTeamInformation;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        model.setRowCount(0);
+        
+        for (EmpCreate employee : register.getRegister()){
+        Object[] row = new Object[10];
+            row[0] = employee;
+            row[1] = employee.getEmployeeId();
+            row[2] = employee.getAge();
+            row[3] = employee.getGender();
+            row[4] = employee.getStartDate();
+            row[5] = employee.getLevel();
+            row[6] = employee.getTeamInformation();
+            row[7] = employee.getPositionTitle();
+            row[8] = employee.getEmployeePhoneNo();
+            row[9] = employee.getEmployeeemailAddress();
+            
+            model.addRow(row);
+        }
+        }    
     }
-}
+
