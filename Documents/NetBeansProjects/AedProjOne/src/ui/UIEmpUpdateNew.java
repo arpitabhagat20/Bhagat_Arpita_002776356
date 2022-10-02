@@ -14,18 +14,22 @@ import model.EmpView;
  *
  * @author arpitabhagat 
  */
-public class UIEmpUpdate extends javax.swing.JPanel {
+public class UIEmpUpdateNew extends javax.swing.JPanel {
 
     /**
      * Creates new form UIEmpUpdateNew
      */
 EmpView register;
-    public UIEmpUpdate(EmpView register) {
+    public UIEmpUpdateNew(EmpView register) {
         initComponents();
         this.register= register;
         populateTable();
         
     }
+    
+private void update(String txtName, int txtID, int txtAge, String txtGender, String txtStartDate, String txtEmployeeLevel, String txtTeamInformation, String txtPositionTitle, String txtPhoneNumber, String txtEmailAddress){
+    
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
