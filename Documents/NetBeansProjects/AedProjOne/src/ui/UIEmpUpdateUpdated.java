@@ -12,14 +12,14 @@ import model.EmpView;
  *
  * @author arpitabhagat
  */
-public class UIEmpUpdateNihil extends javax.swing.JPanel {
+public class UIEmpUpdateUpdated extends javax.swing.JPanel {
 
     /**
      * Creates new form UIEmpUpdateNihil
      */
     EmpView register;
     
-    public UIEmpUpdateNihil(EmpView register) {
+    public UIEmpUpdateUpdated(EmpView register) {
         initComponents();
         this.register=register;
     }
