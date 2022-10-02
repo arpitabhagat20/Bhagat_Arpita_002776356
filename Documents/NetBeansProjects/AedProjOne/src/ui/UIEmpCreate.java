@@ -139,7 +139,7 @@ public class UIEmpCreate extends javax.swing.JPanel {
                             .addComponent(emailAddress))
                         .addGap(77, 77, 77)
                         .addComponent(jLabel8)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 129, Short.MAX_VALUE)
                 .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,7 +191,7 @@ public class UIEmpCreate extends javax.swing.JPanel {
                     .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(submit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

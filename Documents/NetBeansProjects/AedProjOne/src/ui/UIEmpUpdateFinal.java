@@ -4,32 +4,20 @@
  */
 package ui;
 
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import static jdk.jfr.FlightRecorder.register;
 import model.EmpCreate;
-import model.EmpView;
 
 /**
  *
- * @author arpitabhagat 
+ * @author arpitabhagat
  */
-public class UIEmpUpdateNew extends javax.swing.JPanel {
+public class UIEmpUpdateFinal extends javax.swing.JPanel {
 
     /**
-     * Creates new form UIEmpUpdateNew
+     * Creates new form UIEmpFinal
      */
-EmpView register;
-    public UIEmpUpdateNew(EmpView register) {
+    public UIEmpUpdateFinal() {
         initComponents();
-        this.register= register;
-        populateTable();
-        
     }
-    
-private void update(String txtName, int txtID, int txtAge, String txtGender, String txtStartDate, String txtEmployeeLevel, String txtTeamInformation, String txtPositionTitle, String txtPhoneNumber, String txtEmailAddress){
-    
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,19 +28,6 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtStartDate = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtTeamInformation = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtPositionTitle = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtPhoneNumber = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtEmailAddress = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
@@ -61,37 +36,23 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
         jLabel5 = new javax.swing.JLabel();
         txtEmployeeLevel = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        txtStartDate = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtTeamInformation = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        comboBox = new javax.swing.JComboBox<>();
+        txtPositionTitle = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-
-        jLabel7.setText("Enter Employee Start Date:");
-
-        txtTeamInformation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTeamInformationActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Enter Employee Team Info:");
-
-        txtPositionTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPositionTitleActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Enter Employee Phone Number:");
-
-        jLabel10.setText("Enter Employee Possition Title:");
-
-        jLabel11.setText("Enter Employee Email Address:");
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Update Employee ID");
-
-        jLabel2.setText("Enter Employee ID:");
+        txtPhoneNumber = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtEmailAddress = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel3.setText("Enter Employee Name:");
 
@@ -107,6 +68,14 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
 
         jLabel6.setText("Enter Employee Gender:");
 
+        jLabel7.setText("Enter Employee Start Date:");
+
+        txtTeamInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTeamInformationActionPerformed(evt);
+            }
+        });
+
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,14 +83,24 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel8.setText("Enter Employee Team Info:");
+
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboBoxActionPerformed(evt);
+            }
+        });
+
+        txtPositionTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPositionTitleActionPerformed(evt);
             }
         });
 
         jLabel12.setText("SELECT ID");
+
+        jLabel9.setText("Enter Employee Phone Number:");
 
         jButton1.setText("GO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +108,15 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel10.setText("Enter Employee Possition Title:");
+
+        jLabel11.setText("Enter Employee Email Address:");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Update Employee ID");
+
+        jLabel2.setText("Enter Employee ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -190,7 +178,7 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
                                     .addGap(215, 215, 215)
                                     .addComponent(jLabel12)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(256, 256, 256)
                                     .addComponent(jLabel1)))))
@@ -200,7 +188,7 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
                     .addGroup(layout.createSequentialGroup()
                         .addGap(296, 296, 296)
                         .addComponent(jButton1)))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +197,7 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,77 +238,74 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
                     .addComponent(jLabel9))
                 .addGap(16, 16, 16)
                 .addComponent(btnUpdate)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtTeamInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeamInformationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTeamInformationActionPerformed
-
-    private void txtPositionTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPositionTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPositionTitleActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-            DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-            if(tblEmployee.getSelectedRowCount()==1){
-                if(txtName.getText().isBlank() || txtID.getText().isBlank() || txtAge.getText().isBlank() || txtGender.getText().isBlank() || txtStartDate.getText().isBlank() || txtEmployeeLevel.getText().isBlank() || txtTeamInformation.getText().isBlank() || txtPositionTitle.getText().isBlank() || txtPhoneNumber.getText().isBlank() || txtEmailAddress.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "Please fill out the whole form");
-        }
-        else{
-            String employeeName= (txtName.getText());
-            int Id= Integer.parseInt(txtID.getText());
-            int employeeAge= Integer.parseInt(txtAge.getText());
-            String employeeStartDate=(txtStartDate.getText());
-            String employeeGender=(txtGender.getText());
-            String employeeLevel=(txtEmployeeLevel.getText());
-            String employeeTeamInformation=(txtTeamInformation.getText());
-            String employeePositionTitle= (txtPositionTitle.getText());
-            String employeePhoneNumber= (txtPhoneNumber.getText());
-            String employeeemailAddress= (txtEmailAddress.getText());
-                
-            
-            model.setValueAt(employeeName, tblEmployee.getSelectedRow(), 0);
-            model.setValueAt(Id, tblEmployee.getSelectedRow(), 1);
-            model.setValueAt(employeeAge, tblEmployee.getSelectedRow(), 2);
-            model.setValueAt(employeeStartDate, tblEmployee.getSelectedRow(), 3);
-            model.setValueAt(employeeGender, tblEmployee.getSelectedRow(), 4);
-            model.setValueAt(employeeLevel, tblEmployee.getSelectedRow(), 5);
-            model.setValueAt(employeeTeamInformation, tblEmployee.getSelectedRow(), 6);
-            model.setValueAt(employeePositionTitle, tblEmployee.getSelectedRow(), 7);
-            model.setValueAt(employeePhoneNumber, tblEmployee.getSelectedRow(), 8);
-            model.setValueAt(employeeemailAddress, tblEmployee.getSelectedRow(), 9);
-
-
-                
-                }
-                
-               
-            }
-
-      
-        
-    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void txtTeamInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeamInformationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_txtTeamInformationActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        if(tblEmployee.getSelectedRowCount()==1){
+            if(txtName.getText().isBlank() || txtID.getText().isBlank() || txtAge.getText().isBlank() || txtGender.getText().isBlank() || txtStartDate.getText().isBlank() || txtEmployeeLevel.getText().isBlank() || txtTeamInformation.getText().isBlank() || txtPositionTitle.getText().isBlank() || txtPhoneNumber.getText().isBlank() || txtEmailAddress.getText().isBlank()){
+                JOptionPane.showMessageDialog(null, "Please fill out the whole form");
+            }
+            else{
+                String employeeName= (txtName.getText());
+                int Id= Integer.parseInt(txtID.getText());
+                int employeeAge= Integer.parseInt(txtAge.getText());
+                String employeeStartDate=(txtStartDate.getText());
+                String employeeGender=(txtGender.getText());
+                String employeeLevel=(txtEmployeeLevel.getText());
+                String employeeTeamInformation=(txtTeamInformation.getText());
+                String employeePositionTitle= (txtPositionTitle.getText());
+                String employeePhoneNumber= (txtPhoneNumber.getText());
+                String employeeemailAddress= (txtEmailAddress.getText());
+
+                model.setValueAt(employeeName, tblEmployee.getSelectedRow(), 0);
+                model.setValueAt(Id, tblEmployee.getSelectedRow(), 1);
+                model.setValueAt(employeeAge, tblEmployee.getSelectedRow(), 2);
+                model.setValueAt(employeeStartDate, tblEmployee.getSelectedRow(), 3);
+                model.setValueAt(employeeGender, tblEmployee.getSelectedRow(), 4);
+                model.setValueAt(employeeLevel, tblEmployee.getSelectedRow(), 5);
+                model.setValueAt(employeeTeamInformation, tblEmployee.getSelectedRow(), 6);
+                model.setValueAt(employeePositionTitle, tblEmployee.getSelectedRow(), 7);
+                model.setValueAt(employeePhoneNumber, tblEmployee.getSelectedRow(), 8);
+                model.setValueAt(employeeemailAddress, tblEmployee.getSelectedRow(), 9);
+
+            }
+
+        }
+
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxActionPerformed
+
+    private void txtPositionTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPositionTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPositionTitleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String id=String.valueOf(comboBox.getSelectedItem());
+        EmpCreate EmployeeObject = null;
+        for (EmpCreate employee1 :register.)
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -344,10 +329,4 @@ private void update(String txtName, int txtID, int txtAge, String txtGender, Str
     private javax.swing.JTextField txtStartDate;
     private javax.swing.JTextField txtTeamInformation;
     // End of variables declaration//GEN-END:variables
-
-    private void populateTable() {
-    
-        }
-        }    
-    
-
+}
