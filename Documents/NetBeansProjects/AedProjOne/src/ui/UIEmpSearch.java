@@ -52,7 +52,7 @@ public class UIEmpSearch extends javax.swing.JPanel {
         tblEmployee = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("SEARCH EMPLOYEE");
 
         btnCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Employee Name", "Employee ID", "Employee Age", "Employee Gender", "Level", "Team Information", "Position Title" }));

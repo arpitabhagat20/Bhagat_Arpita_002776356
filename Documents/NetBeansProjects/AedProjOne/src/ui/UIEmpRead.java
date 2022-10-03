@@ -42,7 +42,7 @@ public class UIEmpRead extends javax.swing.JFrame {
 
         jButton1.setText("Search");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("READ EMPLOYEE");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Employee Name", "Employee ID", "Employee Age", "Employee Gender", "Level", "Team Information", "Position Title" }));

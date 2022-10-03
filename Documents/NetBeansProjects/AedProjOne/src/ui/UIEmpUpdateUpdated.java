@@ -75,7 +75,6 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         comboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        updateBtn = new javax.swing.JButton();
 
         jLabel1.setText("Employee Name:");
 
@@ -115,7 +114,7 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setText("UPDATE EMPLOYEE ID");
 
         emailAddress.addActionListener(new java.awt.event.ActionListener() {
@@ -144,13 +143,6 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        updateBtn.setText("BUTTON");
-        updateBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBtnActionPerformed(evt);
             }
         });
 
@@ -219,13 +211,8 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
                     .addComponent(positionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(updateBtn)))
+                .addGap(318, 318, 318)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -284,9 +271,7 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
                     .addComponent(emailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(updateBtn)
-                .addGap(77, 77, 77)
+                .addGap(128, 128, 128)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -369,17 +354,6 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxActionPerformed
-
-    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        // TODO add your handling code here:
-        String registerId = String.valueOf(comboBox.getSelectedItem());
-        EmpCreate empobj =null;
-        for (EmpCreate emp : register.getRegister()){
-            if(String.valueOf(emp.getEmployeeId()).equals(registerId)){
-                empobj = emp;
-            }
-        
-    }//GEN-LAST:event_updateBtnActionPerformed
     String message = "Updated Successfully!";
         empobj.setLevel(level.getText());
         empobj.setEmployeeName(name.getText());
@@ -422,6 +396,5 @@ public class UIEmpUpdateUpdated extends javax.swing.JPanel {
     private javax.swing.JTextField positionTitle;
     private javax.swing.JTextField startDate;
     private javax.swing.JTextField teamInformation;
-    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,8 +4,6 @@
  */
 package model;
 
-import java.io.File;
-
 /**
  *
  * @author arpitabhagat
@@ -22,14 +20,6 @@ public class EmpCreate {
     private String employeePhoneNo;
     private String employeeemailAddress;
     private File img;
-
-    public File getImg() {
-        return img;
-    }
-
-    public void setImg(File img) {
-        this.img = img;
-    }
 
     public int getEmployeeId() {
         return employeeId;
