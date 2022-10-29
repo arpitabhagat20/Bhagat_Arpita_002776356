@@ -224,7 +224,17 @@ public class LoginPageUInew extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Welcome System Admin");
             AdminSysUINew sysAdmin = new AdminSysUINew(logs, userLogs, splitPane);
             //sysAdmin.setVisible(true);
-            splitPane.setRightComponent(sysAdmin);
+            splitPane.setRightComponent(sysAdmin); 
+            btnLogOut.setVisible(true);
+        }
+        else if (userName.equals(userObject.getUserName()) && password.equals(userObject.getPassword()) && optionRole.equals(userObject.getRole()) && optionRole.equals("Patient")) {
+        ViewPatient test = new ViewPatient(PersonDirectory,userDirectory,jSplitPane1);
+        splitPane.setRightComponent(test);
+        btnLogOut.setVisible(true);
+        }
+        
+        else {
+        JOptionPane.showMessageDialog(this, "Select correct role and user name password");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
