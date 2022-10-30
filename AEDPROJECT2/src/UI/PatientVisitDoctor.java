@@ -30,7 +30,8 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
     String userName;
     DoctorLogs doctorLogs;
     EncounterLogs encounterLogs;
-    public PatientVisitDoctor(PersonLogs personLogs,UserLogs userLogs, JSplitPane jSplitPane1,String userName,DoctorLogs doctorLogs,EncounterLogs encounterLogs) {
+    String role;
+    public PatientVisitDoctor(PersonLogs personLogs,UserLogs userLogs, JSplitPane jSplitPane1,String userName,String role,DoctorLogs doctorLogs,EncounterLogs encounterLogs) {
         initComponents();
         this.personLogs = personLogs;
         this.userLogs = userLogs;
@@ -38,13 +39,14 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
         this.userName = userName;
         this.doctorLogs = doctorLogs;
         this.encounterLogs = encounterLogs;
+        this.role = role;
 //        Person personObject = null;
 //        for (Person eh : personLogs.getPersonLogs()) {
 //            if(eh.getUserName().equals(userName)){
 //            personObject = eh;
 //            }
         populateDoctorTable();
-        populateEncounterTable();
+     //   populateEncounterTable();
     }
 
     /**
@@ -67,8 +69,6 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
         txtPulseRate = new javax.swing.JTextField();
         txtBloodPressure = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblPatientEncounter = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -123,19 +123,6 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
 
         jLabel11.setText("Blood Pressure");
 
-        tblPatientEncounter.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "DOCTOR", "BLOOD PRESSURE", "BODY TEMPERATURE", "PULSE RATE", "RESPARITORY RATE"
-            }
-        ));
-        jScrollPane1.setViewportView(tblPatientEncounter);
-
         btnBack.setText("RETURN");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,11 +163,8 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(420, 420, 420)
-                        .addComponent(btnappointment))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                        .addComponent(btnappointment)))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,9 +191,7 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(btnappointment, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(205, 205, 205)
                 .addComponent(btnBack)
                 .addContainerGap(135, Short.MAX_VALUE))
         );
@@ -237,7 +219,7 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
         v.getVitalSigns().setBodyTemperature(bd);
         v.getVitalSigns().setRespirationRate(rr);
         v.getDoctor().setUserName(selectedPerson.getUserName());
-        populateEncounterTable();
+       // populateEncounterTable();
         
     }//GEN-LAST:event_btnappointmentActionPerformed
 
@@ -259,7 +241,7 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        PatientView cP = new PatientView(personLogs,userLogs,jSplitPane1,userName,doctorLogs,encounterLogs);
+        PatientView cP = new PatientView(personLogs,userLogs,jSplitPane1,userName,role,doctorLogs,encounterLogs);
         jSplitPane1.setRightComponent(cP);
     }//GEN-LAST:event_btnBackActionPerformed
     public void populateDoctorTable(){
@@ -273,21 +255,21 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
         model.addRow(row);
     }
     }
-    private void populateEncounterTable() {
-    DefaultTableModel model = (DefaultTableModel) tblPatientEncounter.getModel();
-    model.setRowCount(0);
-    for (Encounter eh : encounterLogs.getEncounterLogs())
-    {
-        Object[] row = new Object[5];
-        row[0] = eh;
-        row[1] = eh.getVitalSigns().getBloodPressure();
-        row[2] = eh.getVitalSigns().getBodyTemperature();
-        row[3] = eh.getVitalSigns().getPulseRate();
-        row[4] = eh.getVitalSigns().getRespirationRate();
-        model.addRow(row);
-    }
-    }
-    
+//    private void populateEncounterTable() {
+//    DefaultTableModel model = (DefaultTableModel) tblPatientEncounter.getModel();
+//    model.setRowCount(0);
+//    for (Encounter eh : encounterLogs.getEncounterLogs())
+//    {
+//        Object[] row = new Object[5];
+//        row[0] = eh;
+//        row[1] = eh.getVitalSigns().getBloodPressure();
+//        row[2] = eh.getVitalSigns().getBodyTemperature();
+//        row[3] = eh.getVitalSigns().getPulseRate();
+//        row[4] = eh.getVitalSigns().getRespirationRate();
+//        model.addRow(row);
+//    }
+//    }
+//    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -297,10 +279,8 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblDoctor;
-    private javax.swing.JTable tblPatientEncounter;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtBodyTemperature;
     private javax.swing.JTextField txtPulseRate;

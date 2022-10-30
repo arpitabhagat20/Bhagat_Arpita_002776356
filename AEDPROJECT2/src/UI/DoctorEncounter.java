@@ -274,7 +274,7 @@ public class DoctorEncounter extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        PatientView cP = new PatientView(personLogs,userLogs,jSplitPane1,userName,doctorLogs,encounterLogs);
+        PatientView cP = new PatientView(personLogs,userLogs,jSplitPane1,userName,role,doctorLogs,encounterLogs);
         jSplitPane1.setRightComponent(cP);
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -310,12 +310,13 @@ public class DoctorEncounter extends javax.swing.JPanel {
     model.setRowCount(0);
     for (Encounter eh : encounterLogs.getEncounterLogs())
     {
-        Object[] row = new Object[5];
+        Object[] row = new Object[6];
         row[0] = eh;
         row[1] = eh.getVitalSigns().getBloodPressure();
         row[2] = eh.getVitalSigns().getBodyTemperature();
         row[3] = eh.getVitalSigns().getPulseRate();
         row[4] = eh.getVitalSigns().getRespirationRate();
+        row[5] = eh.getEncounterDate();
         model.addRow(row);
     }
     }

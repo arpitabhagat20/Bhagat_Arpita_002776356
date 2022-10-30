@@ -231,7 +231,7 @@ public class LoginPageUI extends javax.swing.JFrame {
         btnLogout.setVisible(true);
         }
         else if (userName.equals(userObject.getUserName()) && password.equals(userObject.getPassword()) && role.equals(userObject.getRole()) && role.equals("Patient")) {
-        PatientView test = new PatientView(Persondirectory,userLogs,jSplitPane1,userName,doctorLogs,encounterLogs);
+        PatientView test = new PatientView(Persondirectory,userLogs,jSplitPane1,userName,role,doctorLogs,encounterLogs);
         jSplitPane1.setRightComponent(test);
         btnLogout.setVisible(true);
         }

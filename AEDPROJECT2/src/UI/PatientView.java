@@ -20,15 +20,16 @@ public class PatientView extends javax.swing.JPanel {
     /**
      * Creates new form ViewPatient
      */
-    PersonLogs personLogs;
+    PersonLogs logs;
     UserLogs userLogs;
     JSplitPane jSplitPane1;
     DoctorLogs doctorLogs;
     String userName;
     EncounterLogs encounterLogs;
-    public PatientView(PersonLogs personLogs,UserLogs userLogs, JSplitPane jSplitPane1,String userName,DoctorLogs doctorLogs,EncounterLogs encounterLogs) {
+    String role;
+    public PatientView(PersonLogs logs,UserLogs userLogs, JSplitPane jSplitPane1,String userName,String role,DoctorLogs doctorLogs,EncounterLogs encounterLogs) {
         initComponents();
-        this.personLogs = personLogs;
+        this.logs = logs;
         this.userLogs = userLogs;
         this.jSplitPane1 = jSplitPane1;
         this.userName = userName;
@@ -57,6 +58,8 @@ public class PatientView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 255));
 
+        btnViewVitals.setBackground(new java.awt.Color(0, 0, 0));
+        btnViewVitals.setForeground(new java.awt.Color(255, 255, 255));
         btnViewVitals.setText("VIEW VITALS");
         btnViewVitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +67,8 @@ public class PatientView extends javax.swing.JPanel {
             }
         });
 
+        btnVisitDoctor.setBackground(new java.awt.Color(0, 0, 0));
+        btnVisitDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnVisitDoctor.setText("Visit a Doctor");
         btnVisitDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,10 +89,10 @@ public class PatientView extends javax.swing.JPanel {
                         .addGap(373, 373, 373)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(btnViewVitals)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnVisitDoctor)))
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVisitDoctor)
+                            .addComponent(btnViewVitals))))
                 .addContainerGap(408, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,24 +100,24 @@ public class PatientView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVisitDoctor)
-                    .addComponent(btnViewVitals))
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addGap(118, 118, 118)
+                .addComponent(btnViewVitals)
+                .addGap(43, 43, 43)
+                .addComponent(btnVisitDoctor)
+                .addContainerGap(323, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVisitDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisitDoctorActionPerformed
         // TODO add your handling code here:
-        PatientVisitDoctor cP = new PatientVisitDoctor(personLogs,userLogs,jSplitPane1,userName,doctorLogs,encounterLogs);
+        PatientVisitDoctor cP = new PatientVisitDoctor(logs,userLogs,jSplitPane1,userName,role,doctorLogs,encounterLogs);
         jSplitPane1.setRightComponent(cP);
     }//GEN-LAST:event_btnVisitDoctorActionPerformed
 
     private void btnViewVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewVitalsActionPerformed
         // TODO add your handling code here:
-//        PatientViewVitals pvv = new PatientViewVitals(personLogs,userLogs,jSplitPane1,userName,doctorLogs,encounterLogs);
-//        jSplitPane1.setRightComponent(pvv);
+        VitalsPatientView vpv = new VitalsPatientView(logs,userLogs,jSplitPane1,userName,role,doctorLogs,encounterLogs);
+        jSplitPane1.setRightComponent(vpv);
     }//GEN-LAST:event_btnViewVitalsActionPerformed
 
 
