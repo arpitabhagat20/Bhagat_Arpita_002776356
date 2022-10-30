@@ -18,11 +18,11 @@ public class DoctorDirectory {
     
     }
 
-    public ArrayList<Doctor> getDoctorDirectory() {
+    public ArrayList<Doctor> getDoctorLogs() {
         return doctorLogs;
     }
 
-    public void setDoctorDirectory(ArrayList<Doctor> doctorLogs) {
+    public void setDoctorLogs(ArrayList<Doctor> doctorLogs) {
         this.doctorLogs = doctorLogs;
     }
     

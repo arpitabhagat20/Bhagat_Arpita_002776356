@@ -8,6 +8,17 @@ package model;
  *
  * @author arpitabhagat
  */
-public class Doctor { 
+public class Doctor extends Person { 
+    String personName;
+    public Doctor() {
+       personName =  this.getPersonName();
+    }
+    @Override
+    public String toString()
+    {
+           
+           return personName;
+    }
+    
     
 }

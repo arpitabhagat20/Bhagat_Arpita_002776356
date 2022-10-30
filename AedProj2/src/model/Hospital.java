@@ -8,14 +8,7 @@ package model;
  *
  * @author arpitabhagat
  */
-public class Encounter {
-    //Patient patient;
-    VitalSigns vitalSigns;
-//   public Encounter(Patient patient) {
-//        this.patient = patient;
-        
-//    }
-
-    public Encounter() {
-    }
+public class Hospital {
+    
+    
 }

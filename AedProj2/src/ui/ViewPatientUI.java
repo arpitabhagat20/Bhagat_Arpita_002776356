@@ -4,16 +4,38 @@
  */
 package ui;
 
+import javax.swing.JSplitPane;
+import model.DoctorDirectory;
+import model.UserDirectory;
+import model.ViewPerson;
+
 /**
  *
  * @author arpitabhagat
  */
-public class ViewPatient extends javax.swing.JPanel {
-
+public class ViewPatientUI extends javax.swing.JPanel {
+    ViewPerson logs;
+    UserDirectory userLogs;
+    JSplitPane jSplitPane1;
+    DoctorDirectory doctorLogs;
+    String userName;
+    public ViewPatientUI(ViewPerson logs,UserDirectory userLogs, JSplitPane jSplitPane1,String userName,DoctorDirectory doctorLogs) {
+        initComponents();
+        this.logs = logs;
+        this.userLogs = userLogs;
+        this.jSplitPane1 = jSplitPane1;
+        this.userName = userName;
+        this.doctorLogs = doctorLogs;
+//        Person personObject = null;
+//        for (Person eh : personDirectory.getPersonDirectory()) {
+//            if(eh.getUserName().equals(userName)){
+//            personObject = eh;
+//            }
+    }
     /**
      * Creates new form ViewPatient
      */
-    public ViewPatient() {
+    public ViewPatientUI() {
         initComponents();
     }
 

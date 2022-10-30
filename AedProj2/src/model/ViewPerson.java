@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author arpit
+ * @author arpitabhagat
  */
 public class ViewPerson {
     private ArrayList<Person> logs;

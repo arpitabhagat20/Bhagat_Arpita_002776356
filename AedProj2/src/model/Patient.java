@@ -9,15 +9,22 @@ package model;
  * @author arpitabhagat
  */
 class Patient extends Person{
-    VitalSigns vitalSigns;
+    //VitalSigns vitalSigns;
     Encounter enocunter;
 
-    public Patient(VitalSigns vitalSigns, Encounter enocunter) {
-        this.vitalSigns = vitalSigns;
-        this.enocunter = enocunter;
-    }
+    //public Patient(VitalSigns vitalSigns, Encounter enocunter) {
+      //  this.vitalSigns = vitalSigns;
+        //this.enocunter = enocunter;
+    //}
 
     public Patient() {
+    }
+    
+    @Override
+    public String toString()
+    {
+           
+           return this.getPersonName();
     }
     
     //Patient a= new Patient();

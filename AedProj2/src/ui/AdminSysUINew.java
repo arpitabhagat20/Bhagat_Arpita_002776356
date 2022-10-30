@@ -5,6 +5,8 @@
 package ui;
 
 import javax.swing.JSplitPane;
+import model.DoctorDirectory;
+import model.PatientDirectory;
 import model.ViewPerson;
 import model.UserDirectory;
 
@@ -21,13 +23,17 @@ public class AdminSysUINew extends javax.swing.JPanel {
     ViewPerson logs;
     UserDirectory userLogs;
     JSplitPane splitPane;
+    PatientDirectory patientLogs;
+    DoctorDirectory doctorLogs;
     
-    public AdminSysUINew(ViewPerson logs, UserDirectory userLogs, JSplitPane splitPane) {
+    public AdminSysUINew(ViewPerson logs, UserDirectory userLogs, JSplitPane splitPane, PatientDirectory patientLogs,DoctorDirectory doctorLogs) {
         initComponents();
         
         this.logs = logs;
         this.userLogs = userLogs;
         this.splitPane = splitPane;
+        this.patientLogs = patientLogs;
+        this.doctorLogs= doctorLogs;
     }
 
     /**

@@ -6,6 +6,9 @@ package ui;
 
 import javax.swing.JOptionPane;
 import model.Admin;
+import model.DoctorDirectory;
+import model.PatientDirectory;
+import model.PersonDirectory;
 import model.User;
 import model.UserDirectory;
 import model.ViewPerson;
@@ -24,11 +27,17 @@ public class LoginPageUInew extends javax.swing.JFrame {
     //private final Admin hospitalAdmin;
     ViewPerson logs;
     UserDirectory userLogs;
+    DoctorDirectory doctorLogs;
+    PatientDirectory patientLogs;
     public LoginPageUInew() {
         initComponents();
         btnLogOut.setVisible(false);
         this.logs = new ViewPerson();
         this.userLogs = new UserDirectory();
+        this.patientLogs = new PatientDirectory();
+        this.doctorLogs = new DoctorDirectory();
+
+
         //this.systemAdmin = new Admin(jobRole:"System Admin", personName:"Arpita", personGender:"Female", personAge:24, personPhoneNumber:"8577638188", personUserName:"gugegush", personPassword:"hagrii", personEmailId:"hrishikeshsexy@gmail.com");
         //this.systemAdmin = new Admin(jobRole)
         
@@ -222,15 +231,17 @@ public class LoginPageUInew extends javax.swing.JFrame {
             btnUsername.setText("");
             btnPassword.setText("");
             JOptionPane.showMessageDialog(this,"Welcome System Admin");
-            AdminSysUINew sysAdmin = new AdminSysUINew(logs, userLogs, splitPane);
+             AdminSysUINew sysAdmin = new AdminSysUINew(logs, userLogs, splitPane, patientLogs, doctorLogs);
             //sysAdmin.setVisible(true);
             splitPane.setRightComponent(sysAdmin); 
             btnLogOut.setVisible(true);
         }
         else if (userName.equals(userObject.getUserName()) && password.equals(userObject.getPassword()) && optionRole.equals(userObject.getRole()) && optionRole.equals("Patient")) {
-        ViewPatient test = new ViewPatient(PersonDirectory,userDirectory,jSplitPane1);
+        ViewPatientUI test = new ViewPatientUI(logs,userLogs,splitPane,userName, doctorLogs);
         splitPane.setRightComponent(test);
         btnLogOut.setVisible(true);
+        btnUsername.setText("");
+        btnPassword.setText("");
         }
         
         else {
@@ -240,6 +251,11 @@ public class LoginPageUInew extends javax.swing.JFrame {
 
     private void btnUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsernameActionPerformed
         // TODO add your handling code here:
+        splitPane.setRightComponent(jPanel2);
+        btnLogOut.setVisible(false);
+        btnUsername.setText("");
+        btnPassword.setText("");
+    
     }//GEN-LAST:event_btnUsernameActionPerformed
 
     private void comboJobRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboJobRoleActionPerformed
