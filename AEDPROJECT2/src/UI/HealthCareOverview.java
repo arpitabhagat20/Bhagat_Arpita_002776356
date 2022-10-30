@@ -18,14 +18,14 @@ public class HealthCareOverview extends javax.swing.JPanel {
     /**
      * Creates new form Testlogin
      */
-    PersonLogs personDirectory;
-    UserLogs userDirectory;
+    PersonLogs personLogs;
+    UserLogs userLogs;
    JSplitPane jSplitPane1;
    
-    public HealthCareOverview(PersonLogs personDirectory,UserLogs userDirectory, JSplitPane jSplitPane1) {
+    public HealthCareOverview(PersonLogs personLogs,UserLogs userLogs, JSplitPane jSplitPane1) {
         initComponents();
-        this.personDirectory = personDirectory;
-        this.userDirectory = userDirectory;
+        this.personLogs = personLogs;
+        this.userLogs = userLogs;
         this.jSplitPane1 = jSplitPane1; 
     }
 
@@ -40,9 +40,9 @@ public class HealthCareOverview extends javax.swing.JPanel {
 
         btnCreatePerson = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        btnCreatePerson.setText("Create Person");
+        btnCreatePerson.setText("CREATE PERSON");
         btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreatePersonActionPerformed(evt);
@@ -56,7 +56,7 @@ public class HealthCareOverview extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(btnCreatePerson)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,7 +69,7 @@ public class HealthCareOverview extends javax.swing.JPanel {
 
     private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
         // TODO add your handling code here:
-        CreatePerson cP = new CreatePerson(personDirectory,userDirectory,jSplitPane1);
+        CreatePerson cP = new CreatePerson(personLogs,userLogs,jSplitPane1);
         jSplitPane1.setRightComponent(cP);
         
     }//GEN-LAST:event_btnCreatePersonActionPerformed

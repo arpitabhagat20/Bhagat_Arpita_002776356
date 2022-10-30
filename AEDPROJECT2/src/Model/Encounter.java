@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author arpitabhagat
@@ -12,6 +14,34 @@ public class Encounter {
     VitalSigns vitalSigns;
     Doctor doctor;
     String userName;
+    String role;
+    Patient patient;
+    LocalDateTime encounterDate;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public LocalDateTime getEncounterDate() {
+        return encounterDate;
+    }
+
+    public void setEncounterDate(LocalDateTime encounterDate) {
+        this.encounterDate = encounterDate;
+    }
+    
  
     
     public String getUserName() {
@@ -36,17 +66,17 @@ public class Encounter {
         this.vitalSigns = vitalSigns;
     }
     
+  
+
     public Encounter() {
         vitalSigns = new VitalSigns();
         doctor = new Doctor();
+        patient = new Patient();
     }
-
-    @Override
-    public String toString() {
-        return doctor.getUserName();
+    public Encounter(String role) {
+        this.role = role;
     }
-
   
 
-    
 }
+

@@ -27,17 +27,17 @@ public class AdminCreatePerson extends javax.swing.JPanel {
     Patient patient;
     Person person;
     User user;
-    PersonLogs personDirectory;
-    PatientLogs patientDirectory;
-    UserLogs userDirectory;
-    DoctorLogs doctorDirectory;
+    PersonLogs personLogs;
+    PatientLogs patientLogs;
+    UserLogs userLogs;
+    DoctorLogs doctorLogs;
     JSplitPane jSplitPane1;
-    public AdminCreatePerson(PersonLogs personDirectory,UserLogs userDirectory,JSplitPane jSplitPane,PatientLogs patientDirectory,DoctorLogs doctorDirectory) {
+    public AdminCreatePerson(PersonLogs personLogs,UserLogs userLogs,JSplitPane jSplitPane,PatientLogs patientLogs,DoctorLogs doctorLogs) {
         initComponents();
-        this.patientDirectory = patientDirectory;
-        this.personDirectory = personDirectory;
-        this.userDirectory = userDirectory;
-        this.doctorDirectory = doctorDirectory;
+        this.patientLogs = patientLogs;
+        this.personLogs = personLogs;
+        this.userLogs = userLogs;
+        this.doctorLogs = doctorLogs;
         this.jSplitPane1 = jSplitPane;
     }
 
@@ -66,9 +66,9 @@ public class AdminCreatePerson extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        btnCreate.setText("Create Person");
+        btnCreate.setText("CREATE PERSON");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
@@ -123,7 +123,7 @@ public class AdminCreatePerson extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setText("Back");
+        btnBack.setText("RETURN");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -175,7 +175,7 @@ public class AdminCreatePerson extends javax.swing.JPanel {
                         .addComponent(btnCreate)
                         .addGap(47, 47, 47)
                         .addComponent(btnBack)))
-                .addGap(54, 434, Short.MAX_VALUE))
+                .addGap(54, 417, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +216,7 @@ public class AdminCreatePerson extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-      Person person = personDirectory.addNewPerson();
+      Person person = personLogs.addNewPerson();
       person.setName(txtName.getText());
       person.setAge(Integer.parseInt(txtAge.getText()));
       person.setHeight(Integer.parseInt(txtAge.getText()));
@@ -259,7 +259,7 @@ public class AdminCreatePerson extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        AdminHealthCareOverview cP = new AdminHealthCareOverview(personDirectory,userDirectory,jSplitPane1,patientDirectory,doctorDirectory);
+        AdminHealthCareOverview cP = new AdminHealthCareOverview(personLogs,userLogs,jSplitPane1,patientLogs,doctorLogs);
         jSplitPane1.setRightComponent(cP);
     }//GEN-LAST:event_btnBackActionPerformed
 

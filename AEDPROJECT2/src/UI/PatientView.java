@@ -55,9 +55,9 @@ public class PatientView extends javax.swing.JPanel {
         btnVisitDoctor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        btnViewVitals.setText("VIew Vitals");
+        btnViewVitals.setText("VIEW VITALS");
         btnViewVitals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewVitalsActionPerformed(evt);

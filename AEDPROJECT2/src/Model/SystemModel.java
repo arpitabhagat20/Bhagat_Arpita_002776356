@@ -12,12 +12,12 @@ public class SystemModel {
 //    Patient patient;
 //    Person person;
 //    User user;
-//    PersonDirectory personDirectory = new PersonDirectory();
-//    PatientDirectory patientDirectory = new PatientDirectory();
-//    UserDirectory userDirectory = new UserDirectory();
-//    DoctorDirectory doctorDirectory = new DoctorDirectory();
+//    PersonLogs personLogs = new PersonLogs();
+//    PatientLogs patientLogs = new PatientLogs();
+//    UserLogs userLogs = new UserLogs();
+//    DoctorLogs doctorLogs = new DoctorLogs();
     public SystemModel() {
-//        person = personDirectory.addNewPerson();
+//        person = personLogs.addNewPerson();
 //        person.setName("Nihil");
 //        //person.setUserName("Nihil");
 //        person.setAge(10);
@@ -25,14 +25,14 @@ public class SystemModel {
 //        person.setEmailAddress("nihil");
 //        person.setHeight(10);
 //        person.setRole("");
-//        patient = patientDirectory.addNewPatient();
+//        patient = patientLogs.addNewPatient();
 //        patient.setName("Nihil");
 //        patient.setUserName("Nihil");
 //        patient.setAge(10);
 //        patient.setGender("Male");
 //        patient.setEmailAddress("nihil");
 //        patient.setHeight(10);
-//        user = userDirectory.addNewUser();
+//        user = userLogs.addNewUser();
 //        user.setUserName("Nihil");
 //        user.setPassword("Nihil");
 //        user.setRole("Patient");

@@ -58,7 +58,7 @@ public class CreatePerson extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel2.setText("UserName");
 
@@ -66,7 +66,7 @@ public class CreatePerson extends javax.swing.JPanel {
 
         jLabel3.setText("Password");
 
-        btnCreate.setText("Create Person");
+        btnCreate.setText("CREATE PERSON");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
@@ -78,7 +78,7 @@ public class CreatePerson extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Username"
+                "NAME", "USERNAME"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -99,7 +99,7 @@ public class CreatePerson extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Username", "Password", "Role"
+                "USERNAME", "PASSWORD", "ROLE"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -192,7 +192,7 @@ public class CreatePerson extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

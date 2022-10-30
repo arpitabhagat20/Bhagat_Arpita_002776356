@@ -20,18 +20,18 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
     /**
      * Creates new form Testlogin
      */
-    PersonLogs personDirectory;
-    UserLogs userDirectory;
+    PersonLogs personLogs;
+    UserLogs userLogs;
     JSplitPane jSplitPane1;
-    PatientLogs patientDirectory;
-    DoctorLogs doctorDirectory;
-    public AdminHealthCareOverview(PersonLogs personDirectory,UserLogs userDirectory, JSplitPane jSplitPane1,PatientLogs patientDirectory,DoctorLogs doctorDirectory) {
+    PatientLogs patientLogs;
+    DoctorLogs doctorLogs;
+    public AdminHealthCareOverview(PersonLogs personLogs,UserLogs userLogs, JSplitPane jSplitPane1,PatientLogs patientLogs,DoctorLogs doctorLogs) {
         initComponents();
-        this.personDirectory = personDirectory;
-        this.userDirectory = userDirectory;
+        this.personLogs = personLogs;
+        this.userLogs = userLogs;
         this.jSplitPane1 = jSplitPane1;
-        this.patientDirectory = patientDirectory;
-        this.doctorDirectory = doctorDirectory;
+        this.patientLogs = patientLogs;
+        this.doctorLogs = doctorLogs;
     }
 
     /**
@@ -47,16 +47,16 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
         btnCreatePatient = new javax.swing.JButton();
         btnCreateDoctor = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        btnCreatePerson.setText("Create Person");
+        btnCreatePerson.setText("CREATE PERSON");
         btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreatePersonActionPerformed(evt);
             }
         });
 
-        btnCreatePatient.setText("Create Patient");
+        btnCreatePatient.setText("CREATE PATIENT");
         btnCreatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreatePatientActionPerformed(evt);
@@ -75,13 +75,16 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnCreatePerson)
-                .addGap(62, 62, 62)
-                .addComponent(btnCreatePatient)
-                .addGap(53, 53, 53)
-                .addComponent(btnCreateDoctor)
-                .addContainerGap(457, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btnCreatePerson)
+                        .addGap(234, 234, 234)
+                        .addComponent(btnCreateDoctor))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(btnCreatePatient)))
+                .addContainerGap(425, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,27 +92,28 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreatePerson)
-                    .addComponent(btnCreatePatient)
                     .addComponent(btnCreateDoctor))
-                .addContainerGap(542, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addComponent(btnCreatePatient)
+                .addContainerGap(444, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
         // TODO add your handling code here:
-        AdminCreatePerson cP = new AdminCreatePerson(personDirectory,userDirectory,jSplitPane1,patientDirectory,doctorDirectory);
+        AdminCreatePerson cP = new AdminCreatePerson(personLogs,userLogs,jSplitPane1,patientLogs,doctorLogs);
         jSplitPane1.setRightComponent(cP);
     }//GEN-LAST:event_btnCreatePersonActionPerformed
 
     private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
         // TODO add your handling code here:
-        AdminCreatePatient aCP = new AdminCreatePatient(personDirectory,userDirectory,jSplitPane1,patientDirectory,doctorDirectory);
+        AdminCreatePatient aCP = new AdminCreatePatient(personLogs,userLogs,jSplitPane1,patientLogs,doctorLogs);
         jSplitPane1.setRightComponent(aCP);
     }//GEN-LAST:event_btnCreatePatientActionPerformed
 
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
         // TODO add your handling code here:
-        AdminCreateDoctor aCD = new AdminCreateDoctor(personDirectory,userDirectory,jSplitPane1,patientDirectory,doctorDirectory);
+        AdminCreateDoctor aCD = new AdminCreateDoctor(personLogs,userLogs,jSplitPane1,patientLogs,doctorLogs);
         jSplitPane1.setRightComponent(aCD);
     }//GEN-LAST:event_btnCreateDoctorActionPerformed
 

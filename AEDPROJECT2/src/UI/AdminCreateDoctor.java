@@ -12,6 +12,7 @@ import Model.Person;
 import Model.PersonLogs;
 import Model.User;
 import Model.UserLogs;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -72,6 +73,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -166,6 +168,13 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel4.setText("CREATE DOCTOR");
 
+        jButton1.setText("VIEW");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +225,10 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(337, 337, 337)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(424, 424, 424)
+                        .addComponent(jButton1)))
                 .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -256,7 +268,9 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
                     .addComponent(btnBack))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -290,10 +304,10 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
             personObj = eh;
             }
         }
-        personObj.setRole(txtRole.getText());
+        personObj.setRole("Doctor");
         user.setUserName(txtUsername.getText());
         user.setPassword(pwdPassword.getText());
-        user.setRole(txtRole.getText());
+        user.setRole("Doctor");
 //        for (int i= 0 ; i < personLogs.getPersonLogs().size() ; i++){
 //            personLogs.get
 //            if(eh.getName().equals(txtName.getText())){
@@ -328,6 +342,24 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectRowIndex = tblPerson.getSelectedRow();
+        if (selectRowIndex <0)
+        {   
+            JOptionPane.showMessageDialog(this, "Please Select a row to View");
+            return;
+        }
+            DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
+            Person selectedPerson = (Person) model.getValueAt(selectRowIndex, 0);
+            txtName.setText(selectedPerson.getName());
+            txtGender.setText(selectedPerson.getGender());
+            txtHeight.setText(String.valueOf(selectedPerson.getHeight()));
+            txtAge.setText(String.valueOf(selectedPerson.getAge()));
+            txtEmailAddress.setText(selectedPerson.getEmailAddress());
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     
@@ -359,6 +391,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

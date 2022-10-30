@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author nihil
+ * @author arpitabhagat
  */
 public class PatientLogs {
     private ArrayList<Patient> patientLogs;

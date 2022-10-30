@@ -11,29 +11,29 @@ import java.util.ArrayList;
  * @author arpitabhagat
  */
 public class UserLogs {
-    private ArrayList<User> userDirectory;
+    private ArrayList<User> userLogs;
 
     public UserLogs() {
-        this.userDirectory = new ArrayList<User>();
+        this.userLogs = new ArrayList<User>();
     }
 
-    public ArrayList<User> getUserDirectory() {
-        return userDirectory;
+    public ArrayList<User> getUserLogs() {
+        return userLogs;
     }
 
-    public void setUserDirectory(ArrayList<User> userDirectory) {
-        this.userDirectory = userDirectory;
+    public void setUserLogs(ArrayList<User> userLogs) {
+        this.userLogs = userLogs;
     }
     
     public User addNewUser(){
         User user = new User();
-        userDirectory.add(user);
+        userLogs.add(user);
         return user;
         
     }
     
     public void deleteUser(User user)
     {   
-        userDirectory.remove(user);
+        userLogs.remove(user);
     }
 }

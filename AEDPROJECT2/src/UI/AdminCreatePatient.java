@@ -76,9 +76,9 @@ public class AdminCreatePatient extends javax.swing.JPanel {
         txtCellNo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        btnCreate.setText("Create Patient");
+        btnCreate.setText("CREATE PATIENT");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
@@ -149,12 +149,13 @@ public class AdminCreatePatient extends javax.swing.JPanel {
             }
         });
 
+        tblPerson.setBackground(new java.awt.Color(255, 204, 204));
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Username", "Height", "Age", "Email", "Contact"
+                "NAME", "USERNAME", "HEIGHT", "AGE", "EMAIL", "CONTACT"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -167,14 +168,14 @@ public class AdminCreatePatient extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tblPerson);
 
-        btnView.setText("View");
+        btnView.setText("VIEW");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
 
-        btnBack.setText("Back");
+        btnBack.setText("RETURN");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -331,7 +332,19 @@ public class AdminCreatePatient extends javax.swing.JPanel {
         user.setPassword(pwdPassword.getText());
         user.setRole(txtRole.getText());
         JOptionPane.showMessageDialog(null, "Patient is Created Successfully");
-        
+        Person personObj = null;
+        for (Person eh : personLogs.getPersonLogs()) {
+            if(eh.getName().equals(txtName.getText())){
+                personObj = eh;
+            }
+        }
+        personObj.setRole("Patient");
+        txtName.setText("");
+        txtUsername.setText("");
+        txtAge.setText("");
+        txtGender.setText("");
+        txtEmailAddress.setText("");
+        txtHeight.setText("");
         populatePersonTable();
     }//GEN-LAST:event_btnCreateActionPerformed
 

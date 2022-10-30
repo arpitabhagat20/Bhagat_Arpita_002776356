@@ -12,7 +12,7 @@ public  class User {
      String password;
      String userName;
      String role;
-     UserLogs userDirectory;
+     UserLogs userLogs;
 
     public User() {
     }
