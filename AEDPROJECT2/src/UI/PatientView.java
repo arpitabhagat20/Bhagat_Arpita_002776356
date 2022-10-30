@@ -69,14 +69,14 @@ public class PatientView extends javax.swing.JPanel {
 
         btnVisitDoctor.setBackground(new java.awt.Color(0, 0, 0));
         btnVisitDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        btnVisitDoctor.setText("Visit a Doctor");
+        btnVisitDoctor.setText("VISIT DOCTOR");
         btnVisitDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisitDoctorActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("VIEW PATIENT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

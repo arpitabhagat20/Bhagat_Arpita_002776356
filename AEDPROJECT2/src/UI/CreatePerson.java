@@ -66,6 +66,8 @@ public class CreatePerson extends javax.swing.JPanel {
 
         jLabel3.setText("Password");
 
+        btnCreate.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("CREATE PERSON");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +75,7 @@ public class CreatePerson extends javax.swing.JPanel {
             }
         });
 
+        tblPerson.setBackground(new java.awt.Color(255, 255, 204));
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -91,6 +94,7 @@ public class CreatePerson extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblPerson);
 
+        tblUserTable.setBackground(new java.awt.Color(255, 255, 204));
         tblUserTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -120,7 +124,7 @@ public class CreatePerson extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("CREATE PERSON");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

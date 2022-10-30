@@ -46,9 +46,12 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
         btnCreatePerson = new javax.swing.JButton();
         btnCreatePatient = new javax.swing.JButton();
         btnCreateDoctor = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
+        btnCreatePerson.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreatePerson.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePerson.setText("CREATE PERSON");
         btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +59,8 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
             }
         });
 
+        btnCreatePatient.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreatePatient.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePatient.setText("CREATE PATIENT");
         btnCreatePatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,12 +68,17 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
             }
         });
 
-        btnCreateDoctor.setText("Create Doctor");
+        btnCreateDoctor.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreateDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateDoctor.setText("CREATE DOCTOR");
         btnCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateDoctorActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("ADMIN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,24 +88,27 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addComponent(btnCreatePerson)
-                        .addGap(234, 234, 234)
-                        .addComponent(btnCreateDoctor))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCreatePatient)
+                            .addComponent(btnCreateDoctor)
+                            .addComponent(btnCreatePerson)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(222, 222, 222)
-                        .addComponent(btnCreatePatient)))
-                .addContainerGap(425, Short.MAX_VALUE))
+                        .addGap(422, 422, 422)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreatePerson)
-                    .addComponent(btnCreateDoctor))
-                .addGap(75, 75, 75)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel1)
+                .addGap(72, 72, 72)
+                .addComponent(btnCreatePerson)
+                .addGap(35, 35, 35)
+                .addComponent(btnCreateDoctor)
+                .addGap(32, 32, 32)
                 .addComponent(btnCreatePatient)
-                .addContainerGap(444, Short.MAX_VALUE))
+                .addContainerGap(331, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,5 +135,6 @@ public class AdminHealthCareOverview extends javax.swing.JPanel {
     private javax.swing.JButton btnCreateDoctor;
     private javax.swing.JButton btnCreatePatient;
     private javax.swing.JButton btnCreatePerson;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

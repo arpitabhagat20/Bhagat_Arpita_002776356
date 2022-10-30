@@ -74,6 +74,7 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 255));
 
+        tblDoctor.setBackground(new java.awt.Color(255, 255, 204));
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -84,6 +85,8 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tblDoctor);
 
+        btnappointment.setBackground(new java.awt.Color(0, 0, 0));
+        btnappointment.setForeground(new java.awt.Color(255, 255, 255));
         btnappointment.setText("BOOK AN APPOINTMENT");
         btnappointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +133,7 @@ public class PatientVisitDoctor extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("VISIT DOCTOR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

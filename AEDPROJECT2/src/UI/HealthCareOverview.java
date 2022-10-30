@@ -42,6 +42,8 @@ public class HealthCareOverview extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 255));
 
+        btnCreatePerson.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreatePerson.setForeground(new java.awt.Color(255, 255, 255));
         btnCreatePerson.setText("CREATE PERSON");
         btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

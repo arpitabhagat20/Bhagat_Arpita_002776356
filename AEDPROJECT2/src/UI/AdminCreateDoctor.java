@@ -121,6 +121,8 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
 
         jLabel10.setText("Height");
 
+        btnCreate.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("CREATE DOCTOR");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +160,8 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
 
         jLabel6.setText("Name");
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("RETURN");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,9 +169,11 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("CREATE DOCTOR");
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("VIEW");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +233,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
                         .addGap(337, 337, 337)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(424, 424, 424)
+                        .addGap(402, 402, 402)
                         .addComponent(jButton1)))
                 .addContainerGap(189, Short.MAX_VALUE))
         );

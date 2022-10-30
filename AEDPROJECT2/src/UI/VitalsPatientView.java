@@ -73,6 +73,9 @@ public class VitalsPatientView extends javax.swing.JPanel {
         tblViewPateintView = new javax.swing.JTable();
         patientVitals = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        tblViewPateintView.setBackground(new java.awt.Color(255, 255, 204));
         tblViewPateintView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -86,7 +89,7 @@ public class VitalsPatientView extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblViewPateintView);
 
-        patientVitals.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        patientVitals.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         patientVitals.setText("PATIENT VITALS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
