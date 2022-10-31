@@ -2,41 +2,66 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
+
+import java.util.Date;
 
 /**
  *
  * @author arpitabhagat
  */
 public class Doctor extends Person{
-    City city;
-    Community community;
     
-    public City getCity() {
-        return city;
+    private int doctorId;
+    private Date practicingFrom;
+    private int hospitalId;
+    private DoctorSpecialization doctorSpecialization;
+
+    public Doctor(String name, long cellPhoneNumber, String emailId, int age, String gender, House house,int doctorId,Date practicingFrom,DoctorSpecialization doctorSpecialization,int hospitalId ,String password) {
+        super(name, cellPhoneNumber, emailId, age, gender, house,password);
+        this.doctorId = doctorId;
+        this.practicingFrom = practicingFrom;
+        this.doctorSpecialization = doctorSpecialization;
+        this.hospitalId = hospitalId;
+    }
+    
+    
+
+    public int getDoctorId() {
+        return doctorId;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public Community getCommunity() {
-        return community;
+    public Date getPracticingFrom() {
+        return practicingFrom;
     }
 
-    public void setCommunity(Community community) {
-        this.community = community;
+    public void setPracticingFrom(Date practicingFrom) {
+        this.practicingFrom = practicingFrom;
     }
 
-    public Doctor() {
-        city = new City();
-        community = new Community();
+    public DoctorSpecialization getDoctorSpecialization() {
+        return doctorSpecialization;
     }
+
+    public void setDoctorSpecialization(DoctorSpecialization doctorSpecialization) {
+        this.doctorSpecialization = doctorSpecialization;
+    }
+    
     @Override
-    public String toString()
-    {
-           
-           return this.getName();
+    public String toString(){
+        return String.valueOf(doctorId);
+    } 
+
+    public int getHospitalId() {
+        return hospitalId;
     }
-}
+
+    public void setHospitalId(int hospitalId) {
+        this.hospitalId = hospitalId;
+    }
     
+}

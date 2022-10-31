@@ -2,72 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
 
 /**
  *
  * @author arpitabhagat
  */
 public class Person {
-    private String name;
-    private int personId;
-    private int age;
-    private String gender;
-    //private String StartDate;
-    //private String Level;
-    //private String TeamInfo;
-    //private String PositionTitle;
-    //private String ContactInfo;
-    private Long phoneNumber;
-    private String emailAddress;
-    private int height;
-    private String userName;
-    private String Role;
-    City city;
-    Community community;
-    House house;
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
-    public House getHouse() {
-        return house;
-    }
-
-    public void setHouse(House house) {
-        this.house = house;
-    }
     
+   private static int personId; 
 
-    public String getRole() {
-        return Role;
+    public static int getPersonId() {
+        return personId;
     }
 
-    public void setRole(String Role) {
-        this.Role = Role;
+    public static void setPersonId(int aPersonId) {
+        personId = aPersonId;
     }
+   private String name;
+   private long cellPhoneNumber;
+   private String emailId;
+   private int age;
+   private String gender;
+   private House house;
+   private String password;
 
-    public String getUserName() {
-        return userName;
+    public Person(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, String password) {
+        this.name = name;
+        this.cellPhoneNumber = cellPhoneNumber;
+        this.emailId = emailId;
+        this.age = age;
+        this.gender = gender;
+        this.house = house;
+        this.password = password;
     }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
+   
+   static {
+       personId = 1;
+   }
+   
     public String getName() {
         return name;
     }
@@ -76,12 +49,20 @@ public class Person {
         this.name = name;
     }
 
-    public int getPersonId() {
-        return personId;
+    public long getCellPhoneNumber() {
+        return cellPhoneNumber;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setCellPhoneNumber(long cellPhoneNumber) {
+        this.cellPhoneNumber = cellPhoneNumber;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public int getAge() {
@@ -100,31 +81,22 @@ public class Person {
         this.gender = gender;
     }
 
-    public Long getPhoneNumber() {
-        return phoneNumber;
+    public House getHouse() {
+        return house;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setHouse(House house) {
+        this.house = house;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-    public String toString()
-    {
-           return name;
-    }
+    
+    
+  
 }

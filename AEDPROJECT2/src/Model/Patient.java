@@ -2,45 +2,67 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author arpitabhagat
  */
 public class Patient extends Person{
-    City city;
-    Community community;
+
+    private int patientId;
+    private float height;
+    private float weight;
     
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
+    private Map<Integer,EncounterHistory> patientHistoryMap=new HashMap<>();
     
 
-    public Patient() {
-        city = new City();
-        community = new Community();
+    public Patient(String name, long cellPhoneNumber, String emailId, int age, String gender, House house, int patiendId, float height, float weight, String password) {
+        super(name,cellPhoneNumber,emailId,age,gender,house, password);
+        this.patientId =  patiendId;
+        this.height = height;
+        this.weight = weight;
+        
+    }    
+
+    public float getHeight() {
+        return height;
     }
 
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
+    }
+
+    public Map<Integer,EncounterHistory> getPatientHistoryMap() {
+        return patientHistoryMap;
+    }
+
+    public void setPatientHistoryMap(Map<Integer,EncounterHistory> patientHistoryMap) {
+        this.patientHistoryMap = patientHistoryMap;
+    }
+    
     @Override
-    public String toString()
-    {
-           
-           return this.getName();
-    }
+    public String toString(){
+        return String.valueOf(patientId);
+    } 
+
 }
-    
-    

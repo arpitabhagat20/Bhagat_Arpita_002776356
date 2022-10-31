@@ -2,47 +2,62 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package model;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
  * @author arpitabhagat
  */
-public class Community extends City{
-    public String communityName ;
-    public Date createdate;
-
-    public String getCommunityName() {
-        return communityName;
-    }
-
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
+public class Community{
+      
+    
+    EnumMap<City, String[]> LstCommunity = new EnumMap<>(City.class);
+    Map<String, String> Community = new HashMap<>();
+    
+    public EnumMap<City, String[]> getLstCommunity() {
+        return LstCommunity;
     }
     
-    public String validateCommunityName(String name) {
-        String isValid = "";
-        if (name.equals("")) {
-            isValid = "Community Name cannot be blank! \n";
-        } else if (name.length() < 2 || name.length() > 30) {
-            isValid = "Community Name must be atleast 4 characters and maximum 30 characters long! \n";
-        } else if (!name.matches("[a-zA-Z ]{4,30}")) {
-            isValid = "Invalid Community Name Field! \n";
-        }else if (name.equals("Enter here")) {
-            isValid = "Invalid Name \n";
-        }
-        return isValid;
+    public Community() {
+        this.LstCommunity = new EnumMap<>(City.class);
+        setLstCommunity();
     }
     
-    public Boolean alreadtExists(String city, String community) {
-        Boolean found = false;
-        for (int i = 0; i < City.allCities.size(); i++) {
-            if (city.equals(City.allCities.get(i).city) && community.equals(City.allCities.get(i).communityName)) {
-                found = true;
-            }
+    public String[] getCommunityListFromCity(City city){
+        return LstCommunity.get(city);
+    }
+    
+    public void addToLstCommunity(City city, String community){
+        String[] existingCommunities = getCommunityListFromCity(city);
+        ArrayList<String> newCommunities = new ArrayList<String>(); 
+        newCommunities.addAll(Arrays.asList(existingCommunities));
+        newCommunities.add(community);
+        String[] newCommunitiesArr = new String[newCommunities.size()];
+        for (int i = 0; i < newCommunities.size(); i++) {
+            newCommunitiesArr[i] = newCommunities.get(i);
         }
-        return found;
+        LstCommunity.replace(city, existingCommunities, newCommunitiesArr);
+       
+    }
+
+    public void setLstCommunity() {
+        LstCommunity.put(City.NewYork, new String[]{"Brooklyn", "Manhattan", "Queens", "Bronx", });
+        LstCommunity.put(City.Boston, new String[]{"Northeastern University", "Prudential", "Arlington", "Cambridge"});
+        LstCommunity.put(City.SouthernCalifornia, new String[]{"Los Angeles", "Santa Barbara", "San Diego"});
+        LstCommunity.put(City.Austin, new String[]{"Downtown", "Caldwell", "Williamson"});
+    }
+
+    public Map<String, String> getCommunity() {
+        return Community;
+    }
+
+    public void setCommunity(Map<String, String> Community) {
+        this.Community = Community;
     }
 }
