@@ -374,6 +374,15 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
             txtEmailAddress.setText(selectedPerson.getEmailAddress());
             
             //generateDropdownCity();
+         Set<String> idSet = new HashSet<String>();
+        List<Hospital> hospitalList = hospitalLogs.getHospitalLogs();
+        hospitalList.forEach((hospitalObject)->{
+            if(hospitalObject.getCommunity().getCommunityName().equals(selectedPerson.getCommunity().getCommunityName()) && hospitalObject.getCity().city.equals(selectedPerson.getCity().city))
+            idSet.add(hospitalObject.getHospitalName());
+        });
+        idSet.forEach(hospital -> {
+            cbHospital.addItem(String.valueOf(hospital));
+        });
         
     }
 

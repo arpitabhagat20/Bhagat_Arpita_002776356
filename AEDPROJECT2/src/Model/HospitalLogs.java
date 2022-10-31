@@ -16,7 +16,7 @@ public class HospitalLogs {
     this.hospitalLogs = new ArrayList<Hospital>();
     }
 
-    public ArrayList<Hospital> getHospitalDirectory() {
+    public ArrayList<Hospital> getHospitalLogs() {
         return hospitalLogs;
     }
 

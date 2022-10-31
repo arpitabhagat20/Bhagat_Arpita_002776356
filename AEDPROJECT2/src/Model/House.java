@@ -9,14 +9,14 @@ package Model;
  * @author arpitabhagat
  */
 public class House {
-    String houseName;
+    String homeName;
 
-    public String getHouseName() {
-        return houseName;
+    public String getHomeName() {
+        return homeName;
     }
 
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
+    public void setHomeName(String homeName) {
+        this.homeName = homeName;
     }
     
 }
