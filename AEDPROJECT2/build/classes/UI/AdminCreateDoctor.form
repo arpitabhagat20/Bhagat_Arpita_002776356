@@ -41,7 +41,7 @@
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtGender" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
-                                      <Component id="txtName" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
+                                      <Component id="txtName1" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
                                       <Component id="txtAge" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -100,7 +100,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -153,7 +153,7 @@
         <Component class="javax.swing.JTable" name="tblPerson">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="0">
+              <Table columnCount="9" rowCount="0">
                 <Column editable="true" title="Name" type="java.lang.Object"/>
                 <Column editable="true" title="Age" type="java.lang.Object"/>
                 <Column editable="true" title="Email Address" type="java.lang.Object"/>
@@ -161,10 +161,22 @@
                 <Column editable="true" title="Height" type="java.lang.Object"/>
                 <Column editable="true" title="Gender" type="java.lang.Object"/>
                 <Column editable="true" title="Role" type="java.lang.Object"/>
+                <Column editable="true" title="City" type="java.lang.Object"/>
+                <Column editable="true" title="Community" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -293,9 +305,9 @@
         <Property name="text" type="java.lang.String" value="UserName"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtName">
+    <Component class="javax.swing.JTextField" name="txtName1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtName1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">

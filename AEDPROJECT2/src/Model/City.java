@@ -4,41 +4,52 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author arpitabhagat
  */
 public class City {
-    private int pinCode;
-    Community community;
-    private String cityName;
-    
-    public City(){
-        community=new Community();
+    public static String[] cityValues = {"Boston", "Salem", "Cambridge", "Worchester", "Springfield", "Quincy"};
+    public static ArrayList<Community> allCities = new ArrayList<>();
+    public String city;
+    public String state;
+
+    public String validateCity(String city) {
+        String isValid = "";
+        if (city.equals("")) {
+            isValid = "City cannot be blank! \n";
+        } else if (city.length() < 2 || city.length() > 30) {
+            isValid = "City must be atleast 4 characters and maximum 30 characters! \n";
+        } else if (!city.matches("[a-zA-Z ]{2,30}")) {
+            isValid = "Invalid City Field! \n";
+        } else if (city.equals("Enter here")) {
+            isValid = "Invalid Name \n";
+        }
+        return isValid;
     }
 
-    public int getPinCode() {
-        return pinCode;
+    public String validateState(String state) {
+        String isValid = "";
+        if (state.equals("")) {
+            isValid = "State cannot be blank! \n";
+        } else if (state.length() < 2 || state.length() > 30) {
+            isValid = "State must be atleast 4 characters and maximum 30 characters! \n";
+        } else if (!state.matches("[a-zA-Z ]{2,30}")) {
+            isValid = "Invalid State Field! \n";
+        } else if (state.equals("Enter here")) {
+            isValid = "Invalid Name \n";
+        }
+        return isValid;
     }
 
-    public void setPinCode(int pinCode) {
-        this.pinCode = pinCode;
+    public String getCity() {
+        return city;
     }
 
-    public Community getCommunity() {
-        return community;
+    public void setCity(String city) {
+        this.city = city;
     }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
 }
+    

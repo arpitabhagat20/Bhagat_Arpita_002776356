@@ -23,6 +23,34 @@ public class Person {
     private int height;
     private String userName;
     private String Role;
+    City city;
+    Community community;
+    House house;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+    
 
     public String getRole() {
         return Role;

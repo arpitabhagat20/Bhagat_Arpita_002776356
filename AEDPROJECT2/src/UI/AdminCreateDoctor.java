@@ -6,12 +6,18 @@ package UI;
 
 import Model.Doctor;
 import Model.DoctorLogs;
+import Model.Hospital;
+import Model.HospitalLogs;
 import Model.Patient;
 import Model.PatientLogs;
 import Model.Person;
 import Model.PersonLogs;
 import Model.User;
 import Model.UserLogs;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
@@ -33,13 +39,15 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
     UserLogs userLogs;
     DoctorLogs doctorLogs;
     JSplitPane jSplitPane1;
-    public AdminCreateDoctor(PersonLogs personLogs,UserLogs userLogs,JSplitPane jSplitPane,PatientLogs patientLogs,DoctorLogs doctorLogs) {
+    HospitalLogs hospitalLogs;
+    public AdminCreateDoctor(PersonLogs personLogs,UserLogs userLogs,JSplitPane jSplitPane,PatientLogs patientLogs,DoctorLogs doctorLogs, HospitalLogs hospitalLogs) {
         initComponents();
         this.patientLogs = patientLogs;
         this.personLogs = personLogs;
         this.userLogs = userLogs;
         this.doctorLogs = doctorLogs;
         this.jSplitPane1 = jSplitPane;
+        this.hospitalLogs = hospitalLogs;
         populatePersonTable();
     }
 
@@ -69,7 +77,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtName1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -82,7 +90,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Age", "Email Address", "Cell No", "Height", "Gender", "Role"
+                "Name", "Age", "Email Address", "Cell No", "Height", "Gender", "Role", "City", "Community"
             }
         ));
         jScrollPane1.setViewportView(tblPerson);
@@ -152,9 +160,9 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
 
         jLabel2.setText("UserName");
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
+        txtName1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
+                txtName1ActionPerformed(evt);
             }
         });
 
@@ -203,7 +211,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
                                     .addGap(55, 55, 55)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel9)
@@ -245,7 +253,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,17 +305,17 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         Doctor doctor = doctorLogs.addNewDoctor();
         //Person person = personLogs.addNewPerson();
         User user = userLogs.addNewUser();
-        doctor.setName(txtName.getText());
+        doctor.setName(txtName1.getText());
         doctor.setUserName(txtUsername.getText());
         doctor.setAge(Integer.parseInt(txtAge.getText()));
         doctor.setGender(txtGender.getText());
         doctor.setEmailAddress(txtEmailAddress.getText());
-        doctor.setHeight(Integer.parseInt(txtHeight.getText()));
-        doctor.setRole(txtRole.getText());
+        doctor.setRole("Doctor");
+        doctor.getCommunity().setCommunityName(txtUsername.getText());
         Person personObj = null;
-        for (Person eh : personLogs.getPersonLogs()) {
-            if(eh.getName().equals(txtName.getText())){
-            personObj = eh;
+        for (Person person : personLogs.getPersonLogs()) {
+            if(person.getName().equals(txtName.getText())){
+            personObj = person;
             }
         }
         personObj.setRole("Doctor");
@@ -316,7 +324,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         user.setRole("Doctor");
 //        for (int i= 0 ; i < personLogs.getPersonLogs().size() ; i++){
 //            personLogs.get
-//            if(eh.getName().equals(txtName.getText())){
+//            if(person.getName().equals(txtName.getText())){
 //                personLogs.updatePerson(i,txtRole.getText());
 //            }
 //        }
@@ -327,9 +335,9 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHeightActionPerformed
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+    }//GEN-LAST:event_txtName1ActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -364,25 +372,25 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
             txtHeight.setText(String.valueOf(selectedPerson.getHeight()));
             txtAge.setText(String.valueOf(selectedPerson.getAge()));
             txtEmailAddress.setText(selectedPerson.getEmailAddress());
-    
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
-    
-    
+            
+            //generateDropdownCity();
+        
+    }
+
     private void populatePersonTable() {
     DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
     model.setRowCount(0);
     for (Person eh : personLogs.getPersonLogs())
     {   
         
-        Object[] row = new Object[7];
+        Object[] row = new Object[6];
         row[0] = eh;
         row[1] = eh.getAge();
         row[2] = eh.getEmailAddress();
         row[3] = eh.getPhoneNumber();
-        row[4] = eh.getHeight();
-        row[5] = eh.getGender();
-        row[6] = eh.getRole();
+        //row[4] = eh.getHeight();
+        row[4] = eh.getGender();
+        row[5] = eh.getRole();
        if(eh.getRole().isEmpty()){
            model.addRow(row);
        }
@@ -393,6 +401,12 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
        
     }
     }
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -414,7 +428,7 @@ public class AdminCreateDoctor extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmailAddress;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtHeight;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
